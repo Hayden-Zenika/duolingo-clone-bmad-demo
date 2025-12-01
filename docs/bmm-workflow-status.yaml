@@ -46,7 +46,7 @@ workflow_status:
   - phase: "Planning"
     workflows:
       - id: "prd"
-        status: "required"
+        status: "docs/prd.md"
         agent: "pm"
         command: "prd"
         output: "PRD focused on new features/changes"
