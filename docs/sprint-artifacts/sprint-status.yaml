@@ -1,0 +1,50 @@
+generated: "December 1, 2025"
+project: "duolingo-clone"
+sprint: 1
+status: "active"
+
+development_status:
+  # Epic 1
+  "1-1-project-setup": "done"
+  "1-2-user-authentication": "done"
+  "1-3-onboarding-language-selection": "done"
+  "1-4-profile-management": "backlog"
+  "1-5-placement-test": "backlog"
+  
+  # Epic 2
+  "2-1-course-structure-visualization": "done"
+  "2-2-lesson-runner-ui-shell": "done"
+  "2-3-translation-challenge": "done"
+  "2-4-listening-challenge": "backlog"
+  "2-5-speaking-challenge-basic": "backlog"
+  "2-6-immediate-feedback-system": "done"
+  "2-7-offline-lesson-support": "todo"
+  
+  # Epic 3
+  "3-1-xp-system-daily-goal": "partial"
+  "3-2-streak-system": "partial"
+  "3-3-hearts-system": "partial"
+  "3-4-leaderboard": "done"
+  "3-5-quests-achievements": "partial"
+  
+  # Epic 4
+  "4-1-ai-chat-interface": "backlog"
+  "4-2-scenario-selection": "backlog"
+  "4-3-voice-interaction": "backlog"
+  "4-4-transcript-history": "backlog"
+  "4-5-ai-feedback-suggestions": "backlog"
+  "4-6-golden-path-guardrails": "backlog"
+  
+  # Epic 5
+  "5-1-shop-interface": "partial"
+  "5-2-gem-system": "done"
+  "5-3-power-up-streak-freeze": "backlog"
+  "5-4-power-up-heart-refill": "done"
+  "5-5-ad-integration": "backlog"
+  
+  # Epic 6
+  "6-1-admin-dashboard-auth": "partial"
+  "6-2-course-unit-management": "done"
+  "6-3-lesson-challenge-editor": "done"
+  "6-4-ai-scenario-builder": "backlog"
+  "6-5-ai-quality-review": "backlog"

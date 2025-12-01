@@ -125,10 +125,10 @@
 #### Story 1.4: Profile Management (FR4) (DC-5)
 **User Story:** As a user, I want to customize my profile and set goals so that I feel personal ownership of my learning journey.
 **Acceptance Criteria:**
-- [x] Profile page displays current avatar, display name, and join date.
-- [x] "Edit Profile" modal allows changing display name and avatar (select from presets).
-- [x] User can set a "Daily Goal" (e.g., 10 XP, 20 XP, 50 XP).
-- [x] Changes are saved to the database and reflected immediately in the UI.
+- [ ] Profile page displays current avatar, display name, and join date.
+- [ ] "Edit Profile" modal allows changing display name and avatar (select from presets).
+- [ ] User can set a "Daily Goal" (e.g., 10 XP, 20 XP, 50 XP).
+- [ ] Changes are saved to the database and reflected immediately in the UI.
 **Technical Notes:**
 - Avatar presets can be static assets in `public/avatars`.
 - Daily goal is stored in `user_progress`.
@@ -136,10 +136,10 @@
 #### Story 1.5: Placement Test (FR3) (DC-6)
 **User Story:** As a user with prior knowledge, I want to take a test to skip beginner content so that I don't get bored.
 **Acceptance Criteria:**
-- [x] "Find my level" option in onboarding flow.
-- [x] Presents a shortened lesson (10 mixed challenges).
-- [x] If score > 80%, unlock Unit 1 and Unit 2, and mark lessons as completed.
-- [x] If score < 80%, recommend starting from Unit 1.
+- [ ] "Find my level" option in onboarding flow.
+- [ ] Presents a shortened lesson (10 mixed challenges).
+- [ ] If score > 80%, unlock Unit 1 and Unit 2, and mark lessons as completed.
+- [ ] If score < 80%, recommend starting from Unit 1.
 **Technical Notes:**
 - Reuse `Lesson Runner` component but with a special `isPlacement` flag.
 - Logic to batch insert `challenge_progress` for skipped lessons.
@@ -187,21 +187,21 @@
 #### Story 2.4: Listening Challenge (FR6, FR8) (DC-11)
 **User Story:** As a user, I want to listen to a sentence and transcribe it so that I can improve my listening comprehension.
 **Acceptance Criteria:**
-- [x] Display "Audio" button (large speaker icon).
-- [x] Clicking plays the sentence audio (TTS).
-- [x] User selects words from a bank to transcribe what they heard.
-- [x] "Turtle" button plays audio at 0.75x speed.
+- [ ] Display "Audio" button (large speaker icon).
+- [ ] Clicking plays the sentence audio (TTS).
+- [ ] User selects words from a bank to transcribe what they heard.
+- [ ] "Turtle" button plays audio at 0.75x speed.
 **Technical Notes:**
 - Use `lib/audio/tts.ts` (Architecture decision).
 - Fallback to Web Speech API if cloud TTS fails/offline.
 
-#### Story 2.5: Speaking Challenge - Basic (FR6, FR9) (DC-12)
-**User Story:** As a user, I want to read a sentence aloud and get feedback so that I can practice pronunciation.
+#### Story 2.5: Speaking Challenge (FR6, FR8) (DC-12)
+**User Story:** As a user, I want to speak a sentence into the microphone so that I can practice pronunciation.
 **Acceptance Criteria:**
-- [x] Display prompt sentence to read.
-- [x] "Microphone" button to start recording.
-- [x] Visual waveform or indicator during recording.
-- [x] Simple validation (mock or basic Web Speech API match) to pass/fail.
+- [ ] Display the sentence to be spoken.
+- [ ] "Microphone" button to start recording.
+- [ ] Visual feedback (waveform or color change) while recording.
+- [ ] Simple validation (mock or basic Web Speech API) to verify input.
 **Technical Notes:**
 - Use `lib/audio/stt.ts` (Web Speech API) for client-side speech-to-text.
 - Fuzzy string matching (Levenshtein distance) to allow minor errors.
@@ -237,8 +237,8 @@
 - [x] Award 10 XP for completing a standard lesson.
 - [x] Award 5 XP bonus for a "Perfect Lesson" (no mistakes).
 - [x] Display XP animation at the end of a lesson.
-- [x] Daily Goal widget shows progress ring (e.g., 10/20 XP).
-- [x] "Goal Met" notification when target reached.
+- [ ] Daily Goal widget shows progress ring (e.g., 10/20 XP).
+- [ ] "Goal Met" notification when target reached.
 **Technical Notes:**
 - Update `points` in `user_progress`.
 
@@ -248,7 +248,7 @@
 - [x] Completing at least one lesson in a day (local time) increments the streak counter.
 - [x] Missing a day resets the streak to 0 (unless a Streak Freeze is active).
 - [x] Flame icon in the header displays the current streak count.
-- [x] "Streak Extended!" full-screen animation upon first lesson completion of the day.
+- [ ] "Streak Extended!" full-screen animation upon first lesson completion of the day.
 **Technical Notes:**
 - Logic to check `last_active_date` vs `current_date`.
 - Handle timezone differences (store UTC, calculate local day).
@@ -260,7 +260,7 @@
 - [x] Answering incorrectly deducts 1 Heart.
 - [x] If Hearts reach 0, the lesson is paused/failed. User is prompted to "Practice to earn hearts" or "Buy refill".
 - [x] Hearts regenerate automatically (1 heart every 4 hours).
-- [x] Timer for next heart displayed in the Hearts modal.
+- [ ] Timer for next heart displayed in the Hearts modal.
 **Technical Notes:**
 - Store `hearts` (int) and `last_heart_refill` (timestamp) in `user_progress`.
 
@@ -280,7 +280,7 @@
 **Acceptance Criteria:**
 - [x] Display 3 Daily Quests (e.g., "Earn 20 XP", "Complete 1 Lesson", "Score 90% accuracy").
 - [x] Progress updates in real-time.
-- [x] User can "Claim" a reward (Gems/XP) when a quest is completed.
+- [ ] User can "Claim" a reward (Gems/XP) when a quest is completed.
 - [x] "Quests" widget in the sidebar/feed.
 **Technical Notes:**
 - `quests` table defines types. `user_quests` tracks daily progress.
@@ -354,7 +354,7 @@
 **Acceptance Criteria:**
 - [x] Shop page accessible from sidebar.
 - [x] Display user's current Gem balance.
-- [x] List items in categories: "Power-ups", "Cosmetics" (future).
+- [ ] List items in categories: "Power-ups", "Cosmetics" (future).
 - [x] Items show Icon, Name, Description, and Price.
 - [x] "Buy" button (disabled if insufficient funds).
 
@@ -369,18 +369,18 @@
 #### Story 5.3: Power-up - Streak Freeze (FR20) (DC-31)
 **User Story:** As a user, I want to buy a Streak Freeze so that I don't lose my progress if I miss a day.
 **Acceptance Criteria:**
-- [x] Item: "Streak Freeze". Price: 200 Gems.
-- [x] User can hold max 2 freezes.
-- [x] If user misses a day (streak logic), check for freeze.
-- [x] If freeze exists: Consume 1 freeze, maintain streak, notify user ("Streak Freeze used!").
-- [x] If no freeze: Reset streak.
+- [ ] Item: "Streak Freeze". Price: 200 Gems.
+- [ ] User can hold max 2 freezes.
+- [ ] If user misses a day (streak logic), check for freeze.
+- [ ] If freeze exists: Consume 1 freeze, maintain streak, notify user ("Streak Freeze used!").
+- [ ] If no freeze: Reset streak.
 
 #### Story 5.4: Power-up - Heart Refill (FR20) (DC-32)
 **User Story:** As a user, I want to refill my hearts instantly so that I can continue learning without waiting.
 **Acceptance Criteria:**
-- [x] Item: "Refill Hearts". Price: 350 Gems.
-- [x] Only available if hearts < 5.
-- [x] Purchase restores hearts to 5 immediately.
+- [ ] Item: "Refill Hearts". Price: 350 Gems.
+- [ ] Only available if hearts < 5.
+- [ ] Purchase restores hearts to 5 immediately.
 
 #### Story 5.5: Ad Integration (FR21) (DC-33)
 **User Story:** As a free user, I want to watch an ad to regain a heart so that I can keep playing without spending gems.
@@ -400,7 +400,7 @@
 **Acceptance Criteria:**
 - [x] Route `/admin` is protected.
 - [x] Only users with `role: admin` in metadata can access.
-- [x] Sidebar navigation: Courses, Units, Lessons, Challenges, Scenarios.
+- [ ] Sidebar navigation: Courses, Units, Lessons, Challenges, Scenarios.
 - [x] Use `react-admin` or similar for rapid CRUD UI generation (optional, or custom build).
 
 #### Story 6.2: Course & Unit Management (FR22) (DC-36)
