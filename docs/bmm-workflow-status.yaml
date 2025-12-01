@@ -79,6 +79,6 @@ workflow_status:
         agent: "architect"
         command: "validate-architecture"
       - id: "implementation-readiness"
-        status: "required"
+        status: "docs/implementation-plan.md"
         agent: "architect"
         command: "implementation-readiness"
