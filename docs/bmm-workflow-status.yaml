@@ -61,7 +61,7 @@ workflow_status:
   - phase: "Solutioning"
     workflows:
       - id: "create-architecture"
-        status: "recommended"
+        status: "docs/architecture.md"
         agent: "architect"
         command: "create-architecture"
         output: "Integration architecture - solution design for THIS project"
