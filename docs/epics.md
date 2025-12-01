@@ -86,7 +86,7 @@
 ### Epic 1: Foundation & User Onboarding (DC-1)
 **Goal:** Establish the technical foundation and enable users to create accounts and personalize their learning journey.
 
-#### Story 1.1: Project Setup & Infrastructure (DC-2)
+#### Story 1.1: Project Setup & Infrastructure (DC-3)
 **User Story:** As a developer, I want the project structure, database connection, and core dependencies set up so that I can start building features.
 **Acceptance Criteria:**
 - [x] Next.js 14+ (App Router) project initialized with TypeScript.
@@ -99,7 +99,7 @@
 - Follow "Project Initialization" in Architecture.md.
 - Ensure strict linting (ESLint) and formatting (Prettier) are active.
 
-#### Story 1.2: User Authentication (FR1) (DC-3)
+#### Story 1.2: User Authentication (FR1) (DC-4)
 **User Story:** As a user, I want to sign up or log in using my email or social accounts so that I can access the app and save my progress.
 **Acceptance Criteria:**
 - [x] Sign-up page available at `/sign-up` with Email, Google, and Facebook options.
@@ -111,7 +111,7 @@
 - Use Clerk's `<SignUp />` and `<SignIn />` components.
 - Customize Clerk appearance to match "Playful" design system.
 
-#### Story 1.3: Onboarding & Language Selection (FR2) (DC-4)
+#### Story 1.3: Onboarding & Language Selection (FR2) (DC-5)
 **User Story:** As a new user, I want to select my source and target languages so that I am placed in the correct course.
 **Acceptance Criteria:**
 - [x] Onboarding screen presents "I speak..." (Source) and "I want to learn..." (Target) options.
@@ -122,7 +122,7 @@
 - Check `db/schema.ts` for `courses` and `user_progress` relations.
 - Default to "Start from scratch" flow for this story (Placement Test is Epic 6).
 
-#### Story 1.4: Profile Management (FR4) (DC-5)
+#### Story 1.4: Profile Management (FR4) (DC-2)
 **User Story:** As a user, I want to customize my profile and set goals so that I feel personal ownership of my learning journey.
 **Acceptance Criteria:**
 - [ ] Profile page displays current avatar, display name, and join date.
@@ -149,7 +149,7 @@
 ### Epic 2: Core Learning Engine (DC-7)
 **Goal:** Deliver the primary value proposition - interactive language lessons with immediate feedback.
 
-#### Story 2.1: Course Structure Visualization (FR5) (DC-8)
+#### Story 2.1: Course Structure Visualization (FR5) (DC-14)
 **User Story:** As a user, I want to see a clear path of units and lessons so that I know what to learn next and can track my progress.
 **Acceptance Criteria:**
 - [x] "Learn" page displays a scrollable list of Units.
@@ -161,7 +161,7 @@
 - Fetch hierarchy: `Course` -> `Units` -> `Lessons`.
 - Use `user_progress` to determine current active lesson.
 
-#### Story 2.2: Lesson Runner UI Shell (FR6) (DC-9)
+#### Story 2.2: Lesson Runner UI Shell (FR6) (DC-12)
 **User Story:** As a user, I want a distraction-free interface for taking lessons so that I can focus on learning.
 **Acceptance Criteria:**
 - [x] Full-screen layout (no sidebar/footer).
@@ -172,7 +172,7 @@
 **Technical Notes:**
 - State management: `useLesson` store (Zustand) to track current question index and answers.
 
-#### Story 2.3: Translation Challenge (FR6) (DC-10)
+#### Story 2.3: Translation Challenge (FR6) (DC-13)
 **User Story:** As a user, I want to translate sentences between languages so that I can practice grammar and vocabulary.
 **Acceptance Criteria:**
 - [x] Display prompt sentence in Source or Target language.
@@ -184,7 +184,7 @@
 - Challenge type: `SELECT`.
 - Data: `challenge` table with `type="SELECT"`.
 
-#### Story 2.4: Listening Challenge (FR6, FR8) (DC-11)
+#### Story 2.4: Listening Challenge (FR6, FR8) (DC-10)
 **User Story:** As a user, I want to listen to a sentence and transcribe it so that I can improve my listening comprehension.
 **Acceptance Criteria:**
 - [ ] Display "Audio" button (large speaker icon).
@@ -195,7 +195,7 @@
 - Use `lib/audio/tts.ts` (Architecture decision).
 - Fallback to Web Speech API if cloud TTS fails/offline.
 
-#### Story 2.5: Speaking Challenge (FR6, FR8) (DC-12)
+#### Story 2.5: Speaking Challenge (FR6, FR8) (DC-8)
 **User Story:** As a user, I want to speak a sentence into the microphone so that I can practice pronunciation.
 **Acceptance Criteria:**
 - [ ] Display the sentence to be spoken.
@@ -206,7 +206,7 @@
 - Use `lib/audio/stt.ts` (Web Speech API) for client-side speech-to-text.
 - Fuzzy string matching (Levenshtein distance) to allow minor errors.
 
-#### Story 2.6: Immediate Feedback System (FR7) (DC-13)
+#### Story 2.6: Immediate Feedback System (FR7) (DC-11)
 **User Story:** As a user, I want to know immediately if I was right or wrong so that I can learn from my mistakes.
 **Acceptance Criteria:**
 - [x] Correct Answer: Green bottom sheet slides up. "Nice job!" text. "Continue" button. Play "Correct" sound.
@@ -216,7 +216,7 @@
 - Audio files in `public/sounds`.
 - Haptic feedback on mobile (if supported).
 
-#### Story 2.7: Offline Lesson Support (NFR4) (DC-14)
+#### Story 2.7: Offline Lesson Support (NFR4) (DC-9)
 **User Story:** As a user, I want to complete my next lesson even if I lose internet connection so that I can learn on the go.
 **Acceptance Criteria:**
 - [ ] Service Worker caches the *active* lesson's data and assets (audio/images) when the user is on the Learn page.
@@ -231,7 +231,7 @@
 ### Epic 3: Gamification & Progress (DC-15)
 **Goal:** Drive retention and engagement through proven gamification mechanics.
 
-#### Story 3.1: XP System & Daily Goal (FR14) (DC-16)
+#### Story 3.1: XP System & Daily Goal (FR14) (DC-19)
 **User Story:** As a user, I want to earn XP for my efforts and track it against a daily goal so that I feel a sense of accomplishment.
 **Acceptance Criteria:**
 - [x] Award 10 XP for completing a standard lesson.
@@ -242,7 +242,7 @@
 **Technical Notes:**
 - Update `points` in `user_progress`.
 
-#### Story 3.2: Streak System (FR15) (DC-17)
+#### Story 3.2: Streak System (FR15) (DC-20)
 **User Story:** As a user, I want to maintain a daily streak so that I am motivated to build a consistent learning habit.
 **Acceptance Criteria:**
 - [x] Completing at least one lesson in a day (local time) increments the streak counter.
@@ -264,7 +264,7 @@
 **Technical Notes:**
 - Store `hearts` (int) and `last_heart_refill` (timestamp) in `user_progress`.
 
-#### Story 3.4: Leaderboard (FR17) (DC-19)
+#### Story 3.4: Leaderboard (FR17) (DC-17)
 **User Story:** As a user, I want to see how I rank against other learners so that I feel a sense of competition.
 **Acceptance Criteria:**
 - [x] Leaderboard page displays a list of users ranked by "XP earned this week".
@@ -275,7 +275,7 @@
 **Technical Notes:**
 - DB query: Sum XP from `user_progress` (or separate `xp_history` table) filtered by current week range.
 
-#### Story 3.5: Quests & Achievements (FR18) (DC-20)
+#### Story 3.5: Quests & Achievements (FR18) (DC-16)
 **User Story:** As a user, I want to complete daily challenges so that I have clear short-term objectives.
 **Acceptance Criteria:**
 - [x] Display 3 Daily Quests (e.g., "Earn 20 XP", "Complete 1 Lesson", "Score 90% accuracy").
@@ -290,7 +290,7 @@
 ### Epic 4: AI Speaking Companion (DC-21)
 **Goal:** Provide a safe, realistic environment for speaking practice with expert guardrails.
 
-#### Story 4.1: AI Chat Interface (FR10) (DC-22)
+#### Story 4.1: AI Chat Interface (FR10) (DC-26)
 **User Story:** As a user, I want a familiar chat interface to interact with the AI character so that I can focus on the conversation.
 **Acceptance Criteria:**
 - [ ] Chat UI with message bubbles (User right, AI left).
@@ -300,7 +300,7 @@
 **Technical Notes:**
 - Use Vercel AI SDK `useChat` hook for streaming responses.
 
-#### Story 4.2: Scenario Selection (FR11) (DC-23)
+#### Story 4.2: Scenario Selection (FR11) (DC-22)
 **User Story:** As a user, I want to choose a specific real-world scenario so that I can practice relevant vocabulary.
 **Acceptance Criteria:**
 - [ ] "Speak" tab displays a grid of available scenarios (e.g., "Ordering Coffee", "Taxi Ride").
@@ -309,7 +309,7 @@
 **Technical Notes:**
 - `scenarios` table in DB.
 
-#### Story 4.3: Voice Interaction (FR10) (DC-24)
+#### Story 4.3: Voice Interaction (FR10) (DC-23)
 **User Story:** As a user, I want to speak to the AI and hear it speak back so that it feels like a real conversation.
 **Acceptance Criteria:**
 - [ ] "Hold to Speak" button (or toggle mic).
@@ -326,7 +326,7 @@
 - [ ] User can tap a speaker icon on any message to replay the audio.
 - [ ] Conversation history is saved to `ai_conversations` table.
 
-#### Story 4.5: AI Feedback & Suggestions (FR13) (DC-26)
+#### Story 4.5: AI Feedback & Suggestions (FR13) (DC-24)
 **User Story:** As a user, I want suggestions on how to improve my phrasing so that I can learn natural expressions.
 **Acceptance Criteria:**
 - [ ] "Magic Wand" icon appears next to user's messages.
@@ -349,7 +349,7 @@
 ### Epic 5: Monetization & Shop (DC-28)
 **Goal:** Implement the freemium economy to sustain the platform.
 
-#### Story 5.1: Shop Interface (FR19) (DC-29)
+#### Story 5.1: Shop Interface (FR19) (DC-33)
 **User Story:** As a user, I want to browse a shop so that I can see what I can buy with my earned currency.
 **Acceptance Criteria:**
 - [x] Shop page accessible from sidebar.
@@ -358,7 +358,7 @@
 - [x] Items show Icon, Name, Description, and Price.
 - [x] "Buy" button (disabled if insufficient funds).
 
-#### Story 5.2: Gem System (FR20) (DC-30)
+#### Story 5.2: Gem System (FR20) (DC-29)
 **User Story:** As a user, I want to earn and spend virtual currency so that I can access premium features.
 **Acceptance Criteria:**
 - [x] Database field `gems` in `user_progress`.
@@ -366,7 +366,7 @@
 - [x] Backend action to `earnGems(userId, amount)`.
 - [x] UI updates immediately upon transaction.
 
-#### Story 5.3: Power-up - Streak Freeze (FR20) (DC-31)
+#### Story 5.3: Power-up - Streak Freeze (FR20) (DC-32)
 **User Story:** As a user, I want to buy a Streak Freeze so that I don't lose my progress if I miss a day.
 **Acceptance Criteria:**
 - [ ] Item: "Streak Freeze". Price: 200 Gems.
@@ -375,14 +375,14 @@
 - [ ] If freeze exists: Consume 1 freeze, maintain streak, notify user ("Streak Freeze used!").
 - [ ] If no freeze: Reset streak.
 
-#### Story 5.4: Power-up - Heart Refill (FR20) (DC-32)
+#### Story 5.4: Power-up - Heart Refill (FR20) (DC-30)
 **User Story:** As a user, I want to refill my hearts instantly so that I can continue learning without waiting.
 **Acceptance Criteria:**
 - [ ] Item: "Refill Hearts". Price: 350 Gems.
 - [ ] Only available if hearts < 5.
 - [ ] Purchase restores hearts to 5 immediately.
 
-#### Story 5.5: Ad Integration (FR21) (DC-33)
+#### Story 5.5: Ad Integration (FR21) (DC-31)
 **User Story:** As a free user, I want to watch an ad to regain a heart so that I can keep playing without spending gems.
 **Acceptance Criteria:**
 - [ ] In the "Out of Hearts" modal, show "Watch Video (+1 Heart)" button.
@@ -418,7 +418,7 @@
 - [x] CRUD interface for `challenge_options` (Text, Correct Boolean, Audio URL, Image URL).
 - [x] Preview mode to see how the challenge looks to users.
 
-#### Story 6.4: AI Scenario Builder (FR23) (DC-38)
+#### Story 6.4: AI Scenario Builder (FR23) (DC-39)
 **User Story:** As an admin, I want to define the "Golden Path" for AI conversations so that they are pedagogically sound.
 **Acceptance Criteria:**
 - [ ] Interface to create `scenarios` (Title, Difficulty, Persona).
@@ -426,7 +426,7 @@
 - [ ] For each stage: Define `system_prompt_additions` and `transition_criteria`.
 - [ ] Save to `conversation_graph` structure in DB.
 
-#### Story 6.5: AI Quality Review (FR24) (DC-39)
+#### Story 6.5: AI Quality Review (FR24) (DC-38)
 **User Story:** As an admin, I want to review flagged conversations so that I can ensure the AI is behaving correctly.
 **Acceptance Criteria:**
 - [ ] List view of `ai_conversations` where `flagged=true`.
