@@ -1,0 +1,44 @@
+{
+"workflow_version": "1.2.0",
+"timestamps": {"started": "2025-12-01T12:00:00Z", "last_updated": "2025-12-01T12:00:00Z"},
+"mode": "initial_scan",
+"scan_level": "exhaustive",
+"project_root": "/workspaces/typescript-node/duolingo-clone-bmad-demo",
+"output_folder": "/workspaces/typescript-node/duolingo-clone-bmad-demo/docs",
+"completed_steps": [
+  {"step": "step_1", "status": "completed", "timestamp": "2025-12-01T12:05:00Z", "summary": "Classified as monolith with 1 parts, Next.js"},
+  {"step": "step_2", "status": "completed", "timestamp": "2025-12-01T12:06:00Z", "summary": "Found 2 existing docs"},
+  {"step": "step_3", "status": "completed", "timestamp": "2025-12-01T12:07:00Z", "summary": "Tech stack: Next.js on TypeScript"},
+  {"step": "step_4", "status": "completed", "timestamp": "2025-12-01T12:08:00Z", "summary": "Conditional analysis complete, 3 files written"},
+  {"step": "step_5", "status": "completed", "timestamp": "2025-12-01T12:09:00Z", "summary": "Source tree documented"},
+  {"step": "step_6", "status": "completed", "timestamp": "2025-12-10:00Z", "summary": "Dev setup documented"},
+  {"step": "step_7", "status": "completed", "timestamp": "2025-12-01T12:11:00Z", "summary": "Integration architecture skipped (monolith)"},
+  {"step": "step_8", "status": "completed", "timestamp": "2025-12-01T12:12:00Z", "summary": "Architecture docs written for 1 parts"},
+  {"step": "step_9", "status": "completed", "timestamp": "2025-12-01T12:13:00Z", "summary": "All supporting docs written"},
+  {"step": "step_10", "status": "completed", "timestamp": "2025-12-01T12:14:00Z", "summary": "Master index generated"},
+  {"step": "step_11", "status": "completed", "timestamp": "2025-12-01T12:15:00Z", "summary": "Documentation validated"}
+],
+"current_step": "complete",
+"findings": {
+  "project_classification": "Monolith web application using Next.js",
+  "technology_stack": {
+    "root": {
+      "framework": "Next.js",
+      "language": "TypeScript",
+      "database": "PostgreSQL (Neon)",
+      "orm": "Drizzle ORM",
+      "ui": "Tailwind CSS, Shadcn UI, Radix UI",
+      "auth": "Clerk",
+      "state": "Zustand",
+      "payments": "Stripe"
+    }
+  },
+  "api_count": 11,
+  "table_count": 8,
+  "component_count": 20,
+  "folder_count": 10
+},
+"outputs_generated": ["project-scan-report.json", "api-contracts-root.md", "data-models-root.md", "component-inventory-root.md", "source-tree-analysis.md", "development-guide-root.md", "architecture.md", "project-overview.md", "index.md"],
+"resume_instructions": "Starting from step 2",
+"project_types": [{"part_id": "root", "project_type_id": "web", "display_name": "Web Application"}]
+}

@@ -25,7 +25,7 @@ workflow_status:
   - phase: "Prerequisite"
     workflows:
       - id: "document-project"
-        status: "required"
+        status: "docs/index.md"
         agent: "analyst"
         command: "document-project"
         output: "Comprehensive project documentation"
