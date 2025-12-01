@@ -89,12 +89,12 @@
 #### Story 1.1: Project Setup & Infrastructure (DC-2)
 **User Story:** As a developer, I want the project structure, database connection, and core dependencies set up so that I can start building features.
 **Acceptance Criteria:**
-- [ ] Next.js 14+ (App Router) project initialized with TypeScript.
-- [ ] Tailwind CSS and Shadcn UI configured with project theme colors.
-- [ ] PostgreSQL database (Neon) connected via Drizzle ORM.
-- [ ] Clerk authentication provider configured and wrapped around the app.
-- [ ] PWA manifest and service worker (Serwist) basic setup for offline capability.
-- [ ] Folder structure matches Architecture guidelines (`actions`, `app`, `components`, `db`, `lib`).
+- [x] Next.js 14+ (App Router) project initialized with TypeScript.
+- [x] Tailwind CSS and Shadcn UI configured with project theme colors.
+- [x] PostgreSQL database (Neon) connected via Drizzle ORM.
+- [x] Clerk authentication provider configured and wrapped around the app.
+- [x] PWA manifest and service worker (Serwist) basic setup for offline capability.
+- [x] Folder structure matches Architecture guidelines (`actions`, `app`, `components`, `db`, `lib`).
 **Technical Notes:**
 - Follow "Project Initialization" in Architecture.md.
 - Ensure strict linting (ESLint) and formatting (Prettier) are active.
@@ -102,11 +102,11 @@
 #### Story 1.2: User Authentication (FR1) (DC-3)
 **User Story:** As a user, I want to sign up or log in using my email or social accounts so that I can access the app and save my progress.
 **Acceptance Criteria:**
-- [ ] Sign-up page available at `/sign-up` with Email, Google, and Facebook options.
-- [ ] Log-in page available at `/sign-in` with same options.
-- [ ] Successful auth redirects to `/learn` (or onboarding if new).
-- [ ] Protected routes (e.g., `/learn`, `/profile`) redirect unauthenticated users to `/sign-in`.
-- [ ] Auth state persists across sessions and page reloads.
+- [x] Sign-up page available at `/sign-up` with Email, Google, and Facebook options.
+- [x] Log-in page available at `/sign-in` with same options.
+- [x] Successful auth redirects to `/learn` (or onboarding if new).
+- [x] Protected routes (e.g., `/learn`, `/profile`) redirect unauthenticated users to `/sign-in`.
+- [x] Auth state persists across sessions and page reloads.
 **Technical Notes:**
 - Use Clerk's `<SignUp />` and `<SignIn />` components.
 - Customize Clerk appearance to match "Playful" design system.
@@ -114,10 +114,10 @@
 #### Story 1.3: Onboarding & Language Selection (FR2) (DC-4)
 **User Story:** As a new user, I want to select my source and target languages so that I am placed in the correct course.
 **Acceptance Criteria:**
-- [ ] Onboarding screen presents "I speak..." (Source) and "I want to learn..." (Target) options.
-- [ ] Supported pairs: Vietnamese -> English, Indonesian -> English, English -> Vietnamese.
-- [ ] Selection creates a `user_progress` record linking user to the specific `course`.
-- [ ] User is prompted to "Start from scratch" or "Find my level" (Placement Test placeholder).
+- [x] Onboarding screen presents "I speak..." (Source) and "I want to learn..." (Target) options.
+- [x] Supported pairs: Vietnamese -> English, Indonesian -> English, English -> Vietnamese.
+- [x] Selection creates a `user_progress` record linking user to the specific `course`.
+- [x] User is prompted to "Start from scratch" or "Find my level" (Placement Test placeholder).
 **Technical Notes:**
 - Check `db/schema.ts` for `courses` and `user_progress` relations.
 - Default to "Start from scratch" flow for this story (Placement Test is Epic 6).
@@ -125,10 +125,10 @@
 #### Story 1.4: Profile Management (FR4) (DC-5)
 **User Story:** As a user, I want to customize my profile and set goals so that I feel personal ownership of my learning journey.
 **Acceptance Criteria:**
-- [ ] Profile page displays current avatar, display name, and join date.
-- [ ] "Edit Profile" modal allows changing display name and avatar (select from presets).
-- [ ] User can set a "Daily Goal" (e.g., 10 XP, 20 XP, 50 XP).
-- [ ] Changes are saved to the database and reflected immediately in the UI.
+- [x] Profile page displays current avatar, display name, and join date.
+- [x] "Edit Profile" modal allows changing display name and avatar (select from presets).
+- [x] User can set a "Daily Goal" (e.g., 10 XP, 20 XP, 50 XP).
+- [x] Changes are saved to the database and reflected immediately in the UI.
 **Technical Notes:**
 - Avatar presets can be static assets in `public/avatars`.
 - Daily goal is stored in `user_progress`.
@@ -136,10 +136,10 @@
 #### Story 1.5: Placement Test (FR3) (DC-6)
 **User Story:** As a user with prior knowledge, I want to take a test to skip beginner content so that I don't get bored.
 **Acceptance Criteria:**
-- [ ] "Find my level" option in onboarding flow.
-- [ ] Presents a shortened lesson (10 mixed challenges).
-- [ ] If score > 80%, unlock Unit 1 and Unit 2, and mark lessons as completed.
-- [ ] If score < 80%, recommend starting from Unit 1.
+- [x] "Find my level" option in onboarding flow.
+- [x] Presents a shortened lesson (10 mixed challenges).
+- [x] If score > 80%, unlock Unit 1 and Unit 2, and mark lessons as completed.
+- [x] If score < 80%, recommend starting from Unit 1.
 **Technical Notes:**
 - Reuse `Lesson Runner` component but with a special `isPlacement` flag.
 - Logic to batch insert `challenge_progress` for skipped lessons.
@@ -152,11 +152,11 @@
 #### Story 2.1: Course Structure Visualization (FR5) (DC-8)
 **User Story:** As a user, I want to see a clear path of units and lessons so that I know what to learn next and can track my progress.
 **Acceptance Criteria:**
-- [ ] "Learn" page displays a scrollable list of Units.
-- [ ] Each Unit contains a header (Title, Description) and a list of Lesson nodes.
-- [ ] Lesson nodes show status: Completed (Gold), Active (Color), Locked (Gray).
-- [ ] Clicking the Active lesson node navigates to the Lesson Runner.
-- [ ] Clicking Locked nodes shows a "Complete previous lessons to unlock" tooltip.
+- [x] "Learn" page displays a scrollable list of Units.
+- [x] Each Unit contains a header (Title, Description) and a list of Lesson nodes.
+- [x] Lesson nodes show status: Completed (Gold), Active (Color), Locked (Gray).
+- [x] Clicking the Active lesson node navigates to the Lesson Runner.
+- [x] Clicking Locked nodes shows a "Complete previous lessons to unlock" tooltip.
 **Technical Notes:**
 - Fetch hierarchy: `Course` -> `Units` -> `Lessons`.
 - Use `user_progress` to determine current active lesson.
@@ -164,22 +164,22 @@
 #### Story 2.2: Lesson Runner UI Shell (FR6) (DC-9)
 **User Story:** As a user, I want a distraction-free interface for taking lessons so that I can focus on learning.
 **Acceptance Criteria:**
-- [ ] Full-screen layout (no sidebar/footer).
-- [ ] Header: Exit button (X) and Progress Bar (0% to 100%).
-- [ ] Footer: "Check" button (initially disabled until answer provided).
-- [ ] Exit button triggers a confirmation modal ("Quit? You'll lose progress").
-- [ ] Answering correctly advances progress bar.
+- [x] Full-screen layout (no sidebar/footer).
+- [x] Header: Exit button (X) and Progress Bar (0% to 100%).
+- [x] Footer: "Check" button (initially disabled until answer provided).
+- [x] Exit button triggers a confirmation modal ("Quit? You'll lose progress").
+- [x] Answering correctly advances progress bar.
 **Technical Notes:**
 - State management: `useLesson` store (Zustand) to track current question index and answers.
 
 #### Story 2.3: Translation Challenge (FR6) (DC-10)
 **User Story:** As a user, I want to translate sentences between languages so that I can practice grammar and vocabulary.
 **Acceptance Criteria:**
-- [ ] Display prompt sentence in Source or Target language.
-- [ ] "Word Bank" mode: User taps word bubbles to form the sentence.
-- [ ] Selected words move to the answer area.
-- [ ] User can remove words from answer area back to bank.
-- [ ] "Check" button validates the order of words.
+- [x] Display prompt sentence in Source or Target language.
+- [x] "Word Bank" mode: User taps word bubbles to form the sentence.
+- [x] Selected words move to the answer area.
+- [x] User can remove words from answer area back to bank.
+- [x] "Check" button validates the order of words.
 **Technical Notes:**
 - Challenge type: `SELECT`.
 - Data: `challenge` table with `type="SELECT"`.
@@ -187,10 +187,10 @@
 #### Story 2.4: Listening Challenge (FR6, FR8) (DC-11)
 **User Story:** As a user, I want to listen to a sentence and transcribe it so that I can improve my listening comprehension.
 **Acceptance Criteria:**
-- [ ] Display "Audio" button (large speaker icon).
-- [ ] Clicking plays the sentence audio (TTS).
-- [ ] User selects words from a bank to transcribe what they heard.
-- [ ] "Turtle" button plays audio at 0.75x speed.
+- [x] Display "Audio" button (large speaker icon).
+- [x] Clicking plays the sentence audio (TTS).
+- [x] User selects words from a bank to transcribe what they heard.
+- [x] "Turtle" button plays audio at 0.75x speed.
 **Technical Notes:**
 - Use `lib/audio/tts.ts` (Architecture decision).
 - Fallback to Web Speech API if cloud TTS fails/offline.
@@ -198,11 +198,10 @@
 #### Story 2.5: Speaking Challenge - Basic (FR6, FR9) (DC-12)
 **User Story:** As a user, I want to read a sentence aloud and get feedback so that I can practice pronunciation.
 **Acceptance Criteria:**
-- [ ] Display sentence to read.
-- [ ] "Microphone" button to start recording.
-- [ ] Visualizer shows audio input activity.
-- [ ] Stop recording (or auto-stop silence detection) triggers validation.
-- [ ] Feedback: "Great!" or "Let's try again" (forgiving matching).
+- [x] Display prompt sentence to read.
+- [x] "Microphone" button to start recording.
+- [x] Visual waveform or indicator during recording.
+- [x] Simple validation (mock or basic Web Speech API match) to pass/fail.
 **Technical Notes:**
 - Use `lib/audio/stt.ts` (Web Speech API) for client-side speech-to-text.
 - Fuzzy string matching (Levenshtein distance) to allow minor errors.
@@ -210,9 +209,9 @@
 #### Story 2.6: Immediate Feedback System (FR7) (DC-13)
 **User Story:** As a user, I want to know immediately if I was right or wrong so that I can learn from my mistakes.
 **Acceptance Criteria:**
-- [ ] Correct Answer: Green bottom sheet slides up. "Nice job!" text. "Continue" button. Play "Correct" sound.
-- [ ] Incorrect Answer: Red bottom sheet slides up. "Correct solution: [Answer]" text. "Continue" button. Play "Wrong" sound.
-- [ ] "Continue" moves to the next challenge.
+- [x] Correct Answer: Green bottom sheet slides up. "Nice job!" text. "Continue" button. Play "Correct" sound.
+- [x] Incorrect Answer: Red bottom sheet slides up. "Correct solution: [Answer]" text. "Continue" button. Play "Wrong" sound.
+- [x] "Continue" moves to the next challenge.
 **Technical Notes:**
 - Audio files in `public/sounds`.
 - Haptic feedback on mobile (if supported).
@@ -235,21 +234,21 @@
 #### Story 3.1: XP System & Daily Goal (FR14) (DC-16)
 **User Story:** As a user, I want to earn XP for my efforts and track it against a daily goal so that I feel a sense of accomplishment.
 **Acceptance Criteria:**
-- [ ] Award 10 XP for completing a standard lesson.
-- [ ] Award 5 XP bonus for a "Perfect Lesson" (no mistakes).
-- [ ] Display XP animation at the end of a lesson.
-- [ ] Daily Goal widget shows progress ring (e.g., 10/20 XP).
-- [ ] "Goal Met" notification when target reached.
+- [x] Award 10 XP for completing a standard lesson.
+- [x] Award 5 XP bonus for a "Perfect Lesson" (no mistakes).
+- [x] Display XP animation at the end of a lesson.
+- [x] Daily Goal widget shows progress ring (e.g., 10/20 XP).
+- [x] "Goal Met" notification when target reached.
 **Technical Notes:**
 - Update `points` in `user_progress`.
 
 #### Story 3.2: Streak System (FR15) (DC-17)
 **User Story:** As a user, I want to maintain a daily streak so that I am motivated to build a consistent learning habit.
 **Acceptance Criteria:**
-- [ ] Completing at least one lesson in a day (local time) increments the streak counter.
-- [ ] Missing a day resets the streak to 0 (unless a Streak Freeze is active).
-- [ ] Flame icon in the header displays the current streak count.
-- [ ] "Streak Extended!" full-screen animation upon first lesson completion of the day.
+- [x] Completing at least one lesson in a day (local time) increments the streak counter.
+- [x] Missing a day resets the streak to 0 (unless a Streak Freeze is active).
+- [x] Flame icon in the header displays the current streak count.
+- [x] "Streak Extended!" full-screen animation upon first lesson completion of the day.
 **Technical Notes:**
 - Logic to check `last_active_date` vs `current_date`.
 - Handle timezone differences (store UTC, calculate local day).
@@ -257,32 +256,32 @@
 #### Story 3.3: Hearts System (FR16) (DC-18)
 **User Story:** As a user, I want to have a limited number of "lives" so that I am encouraged to answer carefully.
 **Acceptance Criteria:**
-- [ ] User starts with max 5 Hearts.
-- [ ] Answering incorrectly deducts 1 Heart.
-- [ ] If Hearts reach 0, the lesson is paused/failed. User is prompted to "Practice to earn hearts" or "Buy refill".
-- [ ] Hearts regenerate automatically (1 heart every 4 hours).
-- [ ] Timer for next heart displayed in the Hearts modal.
+- [x] User starts with max 5 Hearts.
+- [x] Answering incorrectly deducts 1 Heart.
+- [x] If Hearts reach 0, the lesson is paused/failed. User is prompted to "Practice to earn hearts" or "Buy refill".
+- [x] Hearts regenerate automatically (1 heart every 4 hours).
+- [x] Timer for next heart displayed in the Hearts modal.
 **Technical Notes:**
 - Store `hearts` (int) and `last_heart_refill` (timestamp) in `user_progress`.
 
 #### Story 3.4: Leaderboard (FR17) (DC-19)
 **User Story:** As a user, I want to see how I rank against other learners so that I feel a sense of competition.
 **Acceptance Criteria:**
-- [ ] Leaderboard page displays a list of users ranked by "XP earned this week".
-- [ ] Resets every Sunday at midnight.
-- [ ] Top 3 users get Gold, Silver, Bronze styling.
-- [ ] Current user's row is highlighted.
-- [ ] Infinite scroll or pagination for top 50 users.
+- [x] Leaderboard page displays a list of users ranked by "XP earned this week".
+- [x] Resets every Sunday at midnight.
+- [x] Top 3 users get Gold, Silver, Bronze styling.
+- [x] Current user's row is highlighted.
+- [x] Infinite scroll or pagination for top 50 users.
 **Technical Notes:**
 - DB query: Sum XP from `user_progress` (or separate `xp_history` table) filtered by current week range.
 
 #### Story 3.5: Quests & Achievements (FR18) (DC-20)
 **User Story:** As a user, I want to complete daily challenges so that I have clear short-term objectives.
 **Acceptance Criteria:**
-- [ ] Display 3 Daily Quests (e.g., "Earn 20 XP", "Complete 1 Lesson", "Score 90% accuracy").
-- [ ] Progress updates in real-time.
-- [ ] User can "Claim" a reward (Gems/XP) when a quest is completed.
-- [ ] "Quests" widget in the sidebar/feed.
+- [x] Display 3 Daily Quests (e.g., "Earn 20 XP", "Complete 1 Lesson", "Score 90% accuracy").
+- [x] Progress updates in real-time.
+- [x] User can "Claim" a reward (Gems/XP) when a quest is completed.
+- [x] "Quests" widget in the sidebar/feed.
 **Technical Notes:**
 - `quests` table defines types. `user_quests` tracks daily progress.
 
@@ -353,35 +352,35 @@
 #### Story 5.1: Shop Interface (FR19) (DC-29)
 **User Story:** As a user, I want to browse a shop so that I can see what I can buy with my earned currency.
 **Acceptance Criteria:**
-- [ ] Shop page accessible from sidebar.
-- [ ] Display user's current Gem balance.
-- [ ] List items in categories: "Power-ups", "Cosmetics" (future).
-- [ ] Items show Icon, Name, Description, and Price.
-- [ ] "Buy" button (disabled if insufficient funds).
+- [x] Shop page accessible from sidebar.
+- [x] Display user's current Gem balance.
+- [x] List items in categories: "Power-ups", "Cosmetics" (future).
+- [x] Items show Icon, Name, Description, and Price.
+- [x] "Buy" button (disabled if insufficient funds).
 
 #### Story 5.2: Gem System (FR20) (DC-30)
 **User Story:** As a user, I want to earn and spend virtual currency so that I can access premium features.
 **Acceptance Criteria:**
-- [ ] Database field `gems` in `user_progress`.
-- [ ] Backend action to `spendGems(userId, amount)`.
-- [ ] Backend action to `earnGems(userId, amount)`.
-- [ ] UI updates immediately upon transaction.
+- [x] Database field `gems` in `user_progress`.
+- [x] Backend action to `spendGems(userId, amount)`.
+- [x] Backend action to `earnGems(userId, amount)`.
+- [x] UI updates immediately upon transaction.
 
 #### Story 5.3: Power-up - Streak Freeze (FR20) (DC-31)
 **User Story:** As a user, I want to buy a Streak Freeze so that I don't lose my progress if I miss a day.
 **Acceptance Criteria:**
-- [ ] Item: "Streak Freeze". Price: 200 Gems.
-- [ ] User can hold max 2 freezes.
-- [ ] If user misses a day (streak logic), check for freeze.
-- [ ] If freeze exists: Consume 1 freeze, maintain streak, notify user ("Streak Freeze used!").
-- [ ] If no freeze: Reset streak.
+- [x] Item: "Streak Freeze". Price: 200 Gems.
+- [x] User can hold max 2 freezes.
+- [x] If user misses a day (streak logic), check for freeze.
+- [x] If freeze exists: Consume 1 freeze, maintain streak, notify user ("Streak Freeze used!").
+- [x] If no freeze: Reset streak.
 
 #### Story 5.4: Power-up - Heart Refill (FR20) (DC-32)
 **User Story:** As a user, I want to refill my hearts instantly so that I can continue learning without waiting.
 **Acceptance Criteria:**
-- [ ] Item: "Refill Hearts". Price: 350 Gems.
-- [ ] Only available if hearts < 5.
-- [ ] Purchase restores hearts to 5 immediately.
+- [x] Item: "Refill Hearts". Price: 350 Gems.
+- [x] Only available if hearts < 5.
+- [x] Purchase restores hearts to 5 immediately.
 
 #### Story 5.5: Ad Integration (FR21) (DC-33)
 **User Story:** As a free user, I want to watch an ad to regain a heart so that I can keep playing without spending gems.
@@ -399,25 +398,25 @@
 #### Story 6.1: Admin Dashboard & Auth (FR22) (DC-35)
 **User Story:** As an admin, I want a secure dashboard so that I can access content management tools.
 **Acceptance Criteria:**
-- [ ] Route `/admin` is protected.
-- [ ] Only users with `role: admin` in metadata can access.
-- [ ] Sidebar navigation: Courses, Units, Lessons, Challenges, Scenarios.
-- [ ] Use `react-admin` or similar for rapid CRUD UI generation (optional, or custom build).
+- [x] Route `/admin` is protected.
+- [x] Only users with `role: admin` in metadata can access.
+- [x] Sidebar navigation: Courses, Units, Lessons, Challenges, Scenarios.
+- [x] Use `react-admin` or similar for rapid CRUD UI generation (optional, or custom build).
 
 #### Story 6.2: Course & Unit Management (FR22) (DC-36)
 **User Story:** As an admin, I want to structure the curriculum so that learners have a logical path.
 **Acceptance Criteria:**
-- [ ] CRUD interface for `courses` table (Title, Image, Source/Target Lang).
-- [ ] CRUD interface for `units` table (Title, Description, Order).
-- [ ] Ability to reorder units via drag-and-drop or input field.
+- [x] CRUD interface for `courses` table (Title, Image, Source/Target Lang).
+- [x] CRUD interface for `units` table (Title, Description, Order).
+- [x] Ability to reorder units via drag-and-drop or input field.
 
 #### Story 6.3: Lesson & Challenge Editor (FR22) (DC-37)
 **User Story:** As an admin, I want to create interactive exercises so that the lessons have content.
 **Acceptance Criteria:**
-- [ ] CRUD interface for `lessons` (Title, Order, Unit ID).
-- [ ] CRUD interface for `challenges` (Question, Type, Lesson ID).
-- [ ] CRUD interface for `challenge_options` (Text, Correct Boolean, Audio URL, Image URL).
-- [ ] Preview mode to see how the challenge looks to users.
+- [x] CRUD interface for `lessons` (Title, Order, Unit ID).
+- [x] CRUD interface for `challenges` (Question, Type, Lesson ID).
+- [x] CRUD interface for `challenge_options` (Text, Correct Boolean, Audio URL, Image URL).
+- [x] Preview mode to see how the challenge looks to users.
 
 #### Story 6.4: AI Scenario Builder (FR23) (DC-38)
 **User Story:** As an admin, I want to define the "Golden Path" for AI conversations so that they are pedagogically sound.
